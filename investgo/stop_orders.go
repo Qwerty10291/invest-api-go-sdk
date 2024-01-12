@@ -20,16 +20,18 @@ type StopOrdersServiceClient struct {
 func (s *StopOrdersServiceClient) PostStopOrder(req *PostStopOrderRequest) (*PostStopOrderResponse, error) {
 	var header, trailer metadata.MD
 	resp, err := s.pbClient.PostStopOrder(s.ctx, &pb.PostStopOrderRequest{
-		Quantity:       req.Quantity,
-		Price:          req.Price,
-		StopPrice:      req.StopPrice,
-		Direction:      req.Direction,
-		AccountId:      req.AccountId,
-		ExpirationType: req.ExpirationType,
-		StopOrderType:  req.StopOrderType,
-		ExpireDate:     TimeToTimestamp(req.ExpireDate),
-		TrailingData:   req.TrailingData,
-		InstrumentId:   req.InstrumentId,
+		Quantity:          req.Quantity,
+		Price:             req.Price,
+		StopPrice:         req.StopPrice,
+		Direction:         req.Direction,
+		AccountId:         req.AccountId,
+		ExpirationType:    req.ExpirationType,
+		StopOrderType:     req.StopOrderType,
+		ExpireDate:        TimeToTimestamp(req.ExpireDate),
+		ExchangeOrderType: req.ExchangeOrderType,
+		TakeProfitType:    req.TakeProfitType,
+		TrailingData:      req.TrailingData,
+		InstrumentId:      req.InstrumentId,
 	}, grpc.Header(&header), grpc.Trailer(&trailer))
 	if err != nil {
 		header = trailer

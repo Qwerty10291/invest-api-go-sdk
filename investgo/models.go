@@ -642,16 +642,18 @@ type GetOperationsByCursorRequest struct {
 }
 
 type PostStopOrderRequest struct {
-	InstrumentId   string
-	Quantity       int64
-	Price          *pb.Quotation
-	StopPrice      *pb.Quotation
-	Direction      pb.StopOrderDirection
-	AccountId      string
-	ExpirationType pb.StopOrderExpirationType
-	StopOrderType  pb.StopOrderType
-	TrailingData   *pb.PostStopOrderRequest_TrailingData
-	ExpireDate     time.Time
+	InstrumentId      string
+	Quantity          int64
+	Price             *pb.Quotation
+	StopPrice         *pb.Quotation
+	Direction         pb.StopOrderDirection
+	AccountId         string
+	ExpirationType    pb.StopOrderExpirationType
+	StopOrderType     pb.StopOrderType
+	ExchangeOrderType pb.ExchangeOrderType
+	TakeProfitType    pb.TakeProfitType
+	TrailingData      *pb.PostStopOrderRequest_TrailingData
+	ExpireDate        time.Time
 }
 
 type SandboxPayInRequest struct {

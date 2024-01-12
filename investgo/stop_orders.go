@@ -28,6 +28,7 @@ func (s *StopOrdersServiceClient) PostStopOrder(req *PostStopOrderRequest) (*Pos
 		ExpirationType: req.ExpirationType,
 		StopOrderType:  req.StopOrderType,
 		ExpireDate:     TimeToTimestamp(req.ExpireDate),
+		TrailingData:   req.TrailingData,
 		InstrumentId:   req.InstrumentId,
 	}, grpc.Header(&header), grpc.Trailer(&trailer))
 	if err != nil {

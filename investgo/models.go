@@ -650,6 +650,7 @@ type PostStopOrderRequest struct {
 	AccountId      string
 	ExpirationType pb.StopOrderExpirationType
 	StopOrderType  pb.StopOrderType
+	TrailingData   *pb.PostStopOrderRequest_TrailingData
 	ExpireDate     time.Time
 }
 
